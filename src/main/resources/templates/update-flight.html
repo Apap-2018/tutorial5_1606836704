@@ -1,0 +1,30 @@
+<head>
+	<title>Home</title>
+	
+	<object th:include="fragments/fragment :: css" th:remove="tag"></object>
+	<object th:include="fragments/fragment :: js" th:remove="tag"></object>	
+</head>
+
+<body>
+	<nav th:replace="fragments/fragment :: navbar"></nav>
+	<h2>Hello</h2>
+	
+	<h3>Update Flight Information</h3>
+	<form th:action="@{/flight/update/}" th:object="${oldFlight}" method ="POST">
+		<input type="hidden" name="id" th:value="${oldFlight.id}"/>
+		Flight Number: <br>
+		<input type="text" name="flightNumber" th:value="${oldFlight.flightNumber}"/>
+		<br>
+		Origin: <br>
+		<input type="text" name="origin" th:value="${oldFlight.origin}"/>
+		<br>
+		Destination: <br>
+		<input type="text" name="destination" th:value="${oldFlight.destination}"/>
+		<br>
+		Time:<br>
+		<input type="date" name="time" th:value="${oldFlight.time}"/>
+		<br><br>
+		<button type="submit">Submit</button>
+	</form>
+</body>
+</html>

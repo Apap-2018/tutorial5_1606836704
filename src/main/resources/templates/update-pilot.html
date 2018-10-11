@@ -1,0 +1,26 @@
+<head>
+	<title>Home</title>
+	
+	<object th:include="fragments/fragment :: css" th:remove="tag"></object>
+	<object th:include="fragments/fragment :: js" th:remove="tag"></object>	
+</head>
+
+<body>
+	<nav th:replace="fragments/fragment :: navbar"></nav>
+	<h2>Hello</h2>
+	
+	<h3>Update Pilot Information</h3>
+	<form th:action="@{/pilot/update/}" th:object="${oldPilot}" method ="POST">
+		License Number: <br>
+		<input type="text" name="licenseNumber" th:value="${oldPilot.licenseNumber}" readonly/>
+		<br>
+		Name: <br>
+		<input type="text" name="name" th:value="${oldPilot.name}"/>
+		<br>
+		Fly Hour: <br>
+		<input type="number" name="flyHour" th:value="${oldPilot.flyHour}"/>
+		<br><br>
+		<button type="submit">Submit</button>
+	</form>
+</body>
+</html>
